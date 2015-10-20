@@ -1,8 +1,25 @@
 $red: rgba(255, 0, 0, 1);
 
+#app{
+    height: 100%;
+    width:100%;
+}
+
 h1 {
     color: $red
 }
 
+.tussi{
+    margin: 10px;
+}
 
+.isotila{
+    position:absolute;
+    bottom:0;
+    background-color: pink;
+    padding:20px;
+    font-size:50pt;
+    width:100%;
+    text-align: center;
+}
 
