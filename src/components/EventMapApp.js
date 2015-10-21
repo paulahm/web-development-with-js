@@ -1,13 +1,14 @@
 import React from 'react';
 import api from '../api';
 
-const HelloWorldApp = React.createClass({
+import Header from './Header';
+
+const EventMapApp = React.createClass({
 
     getInitialState: function() {
         return {
             count: 0,
-            name: 'Pekkis',
-            names: []
+            names: [],
         };
     },
 
@@ -21,9 +22,14 @@ const HelloWorldApp = React.createClass({
 
     render: function() {
         const names = this.state.names;
-
+        const links = [
+            { 'id': 0, 'name': 'Tab1', 'url': '/tab1'},
+            { 'id': 0, 'name': 'Tab2', 'url': '/tab2'},
+            { 'id': 0, 'name': 'Tab3', 'url': '/tab3'}
+        ]
         return (
             <div>
+                <Header links={links} />
                 <h1>Lusso</h1>
 
                 {this.props.children && React.cloneElement(
@@ -31,7 +37,8 @@ const HelloWorldApp = React.createClass({
                     {
                         names: this.state.names,
                         count: this.state.count,
-                        onIncrementCounter: this.incrementCounter
+                        onIncrementCounter: this.incrementCounter,
+                        links: this.state.links
                     }
                 )}
             </div>
@@ -45,4 +52,4 @@ const HelloWorldApp = React.createClass({
     }
 });
 
-export default HelloWorldApp;
+export default EventMapApp;

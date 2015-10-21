@@ -7,8 +7,8 @@ const Index = React.createClass({
 
     render: function() {
 
-        const { count, names, onIncrementCounter } = this.props;
-
+        const { links, count, names, onIncrementCounter } = this.props;
+        console.log(links);
         return (
 
             <div>
