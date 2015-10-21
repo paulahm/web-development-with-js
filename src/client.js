@@ -1,4 +1,5 @@
 
+import { Router, Route, Link } from 'react-router'
 require('./client.css');
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -14,7 +15,9 @@ const HelloWorld = React.createClass({
     render: function () {
         return (
             <div>
-                Heippis {this.props.name}
+                <Link to={`/hello/${this.props.name}`}>
+                    Heippis {this.props.name}
+                </Link>
             </div>
         );
     }
@@ -52,12 +55,16 @@ const HelloWorldApp = React.createClass({
                  )}
                 <Counterizer count={this.state.count} onIncrementCounter={this.onIncrementCounter} />
                 <MegaCounterizer count={this.state.count}  />
+
+                {this.props.children}
             </div>
         );
     }
 });
 
 const Counterizer = React.createClass({
+    //const = { count, name, onIncrementCounter} = this.props;
+    //{count}{name}
     render: function(){
         return(
             <div className="tussi">
@@ -78,4 +85,25 @@ const MegaCounterizer = React.createClass({
     }
 })
 
-ReactDOM.render(<HelloWorldApp/>, document.getElementById('app'));
+const Greeter = React.createClass({
+    render: function() {
+        const { name } = this.props.params;
+        console.log(this.props);
+
+        return(
+            <h1>
+                Helloo {name}
+            </h1>
+        );
+    }
+});
+
+const routes = (
+    <Router>
+        <Route path="/" component={HelloWorldApp}>
+            <Route path="/hello/:name" component={Greeter}></Route>
+        </Route>
+    </Router>
+);
+
+ReactDOM.render(routes, document.getElementById('app'));
