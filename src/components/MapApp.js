@@ -37,7 +37,7 @@ const MapApp = React.createClass({
                 >
                 </GoogleMap>
             </div>
-        );
+
     }
 });
 
