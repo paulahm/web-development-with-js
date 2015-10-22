@@ -10,7 +10,6 @@ const Index = React.createClass({
         const { links, count, names, onIncrementCounter } = this.props;
         console.log(links);
         return (
-
             <div>
 
                 {names.map((name, i) =>

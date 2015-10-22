@@ -1,63 +1,197 @@
-$red: rgba(255, 0, 0, 1);
+$red: #D51007;
 
-body {
-    background-color: #EBE8E4;
-    color: #222;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
-    font-size: 15px;
-}
-
-#app{
-    height: 100%;
-    width:100%;
+header{
+    border: 1px solid #dedede;
+    background-color: $red;
+    padding: 17px 0 17px 25px;
+    overflow: hidden;
 }
 
 nav {
-    position:relative;
-    top:0;left:0;
-    background-color: #fff;s
-    border: 1px solid #dedede;
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
-    color: #888;
-    display: block;
-    overflow: hidden;
-    h2{
-        display: inline-block;
-        padding: 0 0 0 20px
-    }
-    ul{
-        display: inline-block;
-    }
-    ul li{
-        display: inherit;
-        padding: 20px;
-
-        a{
-            color: #aaa;
-            display: block;
-            line-height: 12px;
-            text-decoration: none
-        }
+    a:link, a:active, a:visited, a:hover, a:visited{
+    color: #fff !important;
+    text-decoration: none
     }
 }
 
+/*****************/
 
-h1 {
-    color: $red
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700);
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
-.tussi{
-    margin: 10px;
+/* ---------- LINK STYLES ---------- */
+a:link, a:visited{
+    color:black;
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.isotila{
-    position:absolute;
-    bottom:0;
-    background-color: pink;
-    padding:20px;
-    font-size:50pt;
-    width:100%;
+a:hover{
+    color:black;
+    text-decoration: underline;
+    cursor:pointer;
+}
+div#dialogBox a, div#dialogBox a:active, div#dialogBox a:visited, div#dialogBox a:hover{
+    color:red;
+}
+
+/* ---------- GENERAL STYLES ---------- */
+
+h1{
+    font-size:14pt;
+    font-weight: 600;
+    margin-bottom:14pt;
+}
+
+.centered{
+    text-align:center;
+}
+
+.errorMessage{
+    margin:10px 0 10px 0;
+    color:red;
+}
+
+/* ---------- ICONS ---------- */
+.search-icon{
+    background:url('./img/search.png') no-repeat center bottom;
+    margin:4px 0 0 5px;
+}
+
+.down-icon{
+    background:url('./img/down.png') no-repeat center bottom;
+    margin-left:5px;
+}
+
+/* ---------- MESSAGE VIEW ---------- */
+/* Cross-browser alpha-transparent background hacks :) */
+div#usernameDialog{
+    background:rgb(0,0,0);
+    background: transparent\9;
+    background:rgba(0,0,0,0.4);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+div#usernameDialog:nth-child(n) {
+    filter: none;
+}
+
+div#dialogBox{
+    padding:30px 60px;
+    margin:15% auto;
+    background-color:#fff;
     text-align: center;
 }
 
+div#dialogBox input{
+    margin-bottom:14pt;
+    padding:4pt;
+}
+
+/* ---------- HEADER ---------- */
+header{
+    background-color: #D51007;
+    padding:17px 0px 17px 25px;
+    overflow:hidden;
+}
+
+div#powered{
+    padding-top:10px;
+    color:#fff;
+    font-weight:500;
+}
+
+div#logo{
+    background: url("./img/logo.png") no-repeat left top;
+}
+
+/* ---------- TASK BAR ---------- */
+div#taskBar{
+    padding:10px 0px 10px 30px;
+    overflow:hidden;
+    background-color:#fff;
+}
+
+div#loggedUser{
+    background:url('./img/user.png') no-repeat left center;
+    text-align:right;
+    padding:0 20px 0 130px;
+}
+
+div#logOut{
+    background:url('./img/logout.png') no-repeat;
+    margin-left:4pt;
+}
+
+/* ---------- EVENT LISTING ---------- */
+div#eventList{
+    overflow:scroll;
+    padding:20px 20px 0 20px;
+    background-color:#fff;
+}
+
+div#eventList .eventDate{
+    font-size:10pt;
+    margin-right:4pt;
+}
+
+div .eventInfo{
+    margin-top:8px;
+    font-size:11pt;
+    font-weight:400;
+    width:100%;
+    padding:5px 5px 0 5px;
+}
+
+#map{
+    overflow:hidden;
+}
+/* ---------- FOOTER ---------- */
+footer{
+    background-color:#D51007;
+    padding:17px 0px 17px 25px;
+}
+
+/* Remove shadows when screen size is small */
+/* Less CPU intensive */
+@media all and (min-width: 480px) {
+  div#taskBar{
+    -moz-box-shadow:    5px 5px 10px 0 rgba(0, 0, 0, 0.2),
+                        inset 0px -25px 50px -30px rgba(50, 50, 50, 0.2);
+    -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2),
+                        inset 0px -25px 50px -30px rgba(50, 50, 50, 0.2);
+    box-shadow:         5px 5px 10px 0 rgba(0, 0, 0, 0.2),
+                        inset 0px -25px 50px -30px rgba(50, 50, 50, 0.2);
+  }
+
+   div .eventInfo{
+    -moz-box-shadow:    inset 0px 25px 30px -30px rgba(50, 50, 50, 0.5);
+    -webkit-box-shadow: inset 0px 25px 30px -30px rgba(50, 50, 50, 0.5);
+    box-shadow:         inset 0px 25px 30px -30px rgba(50, 50, 50, 0.5);
+  }
+
+  div#dialogBox{
+    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    }
+
+  div#eventList{
+    -moz-box-shadow:    -5px 20px 20px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: -5px 20px 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow:         -5px 20px 20px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  footer{
+    -moz-box-shadow:    0 5px 10px 0 rgba(0, 0, 0, 0.2),
+                        0px 25px 50px -30px rgba(50, 50, 50, 0.2);
+    -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+                        0px 25px 50px -30px rgba(50, 50, 50, 0.2);
+    box-shadow:         0 -5px 10px 0 rgba(0, 0, 0, 0.2),
+                        0px 25px 50px -30px rgba(50, 50, 50, 0.2);
+  }
+}

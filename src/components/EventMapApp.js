@@ -1,7 +1,12 @@
 import React from 'react';
 import api from '../api';
+import { Map } from 'immutable';
 
 import Header from './Header';
+import Dialog from './Dialog';
+import TaskBar from './TaskBar';
+import MapContainer from './MapContainer';
+
 
 const EventMapApp = React.createClass({
 
@@ -9,6 +14,22 @@ const EventMapApp = React.createClass({
         return {
             count: 0,
             names: [],
+            markers: Map([
+                {marker:
+                    {'index': 0,
+                    'name':'marker1',
+                    'latitude':65.012615,
+                    'longtitude':25.471453
+                     }
+                },
+                {marker: {
+                    'index': 1,
+                    'name':'marker2',
+                    'latitude':60.173324,
+                    'longtitude':24.941025
+                    }
+                }
+            ])
         };
     },
 
@@ -23,14 +44,14 @@ const EventMapApp = React.createClass({
     render: function() {
         const names = this.state.names;
         const links = [
-            { 'id': 0, 'name': 'Tab1', 'url': '/tab1'},
-            { 'id': 0, 'name': 'Tab2', 'url': '/tab2'},
-            { 'id': 0, 'name': 'Tab3', 'url': '/tab3'}
+            { 'id': 0, 'name': 'Login', 'url': '/'},
         ]
         return (
             <div>
                 <Header links={links} />
-                <h1>Lusso</h1>
+                <Dialog />
+                <TaskBar />
+                <MapContainer markers={this.state.markers}/>
 
                 {this.props.children && React.cloneElement(
                     this.props.children,
@@ -38,7 +59,7 @@ const EventMapApp = React.createClass({
                         names: this.state.names,
                         count: this.state.count,
                         onIncrementCounter: this.incrementCounter,
-                        links: this.state.links
+                        markers: this.state.markers
                     }
                 )}
             </div>
@@ -48,6 +69,12 @@ const EventMapApp = React.createClass({
     incrementCounter: function() {
         this.setState({
             count: this.state.count + 1
+        });
+    },
+
+    setMarkers: function(newMarkers) {
+        this.setState({
+            markers: newMarkers
         });
     }
 });
